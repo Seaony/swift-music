@@ -93,7 +93,7 @@ class SplashViewController: BaseLogicController {
     
     func next () {
         
-        AppDelegate.shared.toMain()
+        AppDelegate.shared.toGuide()
         
     }
     

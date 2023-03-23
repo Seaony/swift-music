@@ -59,3 +59,8 @@ let PADDING_SMALL: CGFloat = 5
 let PADDING_MEDDLE: CGFloat = 10
 let PADDING_OUTER: CGFloat = 16
 let PADDING_LARGE2: CGFloat = 30
+
+let VALUE_NO = -1
+let VALUE0 = 0
+let VALUE10 = 10
+let VALUE12 = 12

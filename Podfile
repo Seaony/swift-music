@@ -32,6 +32,26 @@ target 'Moon' do
   #https://github.com/SDWebImage/SDWebImage
   pod 'SDWebImage'
 
+  # 网络请求框架
+  # https:https://github.com/Moya/Moya
+  # pod 'Moya'
+
+  # 网络请求框架
+  # https://github.com/Moya/Moya
+  pod 'Moya/RxSwift'
+
+  #避免每个界面定义disposeBag
+  #https://github.com/RxSwiftCommunity/NSObject-Rx
+  pod "NSObject+Rx"
+
+  # JSON解析为对象
+  # https://github.com/alibaba/HandyJSON
+  pod "HandyJSON"
+
+  #提示框架
+  #https:https://github.com/jdg/MBProgressHUD
+  pod 'MBProgressHUD'
+
   target 'MoonTests' do
     inherit! :search_paths
     # Pods for testing

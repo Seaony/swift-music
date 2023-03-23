@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import RxSwift
+import Moya
+import NSObject_Rx
 import TangramKit
 
 class GuideController: BaseLogicController {
@@ -83,10 +86,66 @@ class GuideController: BaseLogicController {
     
     // 立即体验按钮被点击
     @objc func enterClick (_ sender: QMUIButton) {
+        
         AppDelegate.shared.toMain()
+        
+        // Moya 原生的网络请求的测试代码
+        // let provider = MoyaProvider<DefaultService>()
+        //        provider.request(.sheets(size: VALUE10)) { result in
+        //
+        //            switch result {
+        //            case let .success(res):
+        //
+        //                let data = res.data
+        //
+        //                let dataString = String(data: data, encoding: .utf8)!
+        //
+        //                print(dataString)
+        //
+        //            case let .failure(error):
+        //                print("request netword error \(error)")
+        //            }
+        //
+        //        }
+        
+        // RxSwift 网络请求的代码
+//        provider.rx.request(.ads(position: VALUE0))
+//            .asObservable()
+//            .mapString()
+//            .mapObject(ListResponse<Ad>.self)
+//            .subscribe{ event in
+//                switch event {
+//                case .next(let data):
+//                    print(data.data.data![0].title!)
+//                case .error(let err):
+//                    print(err)
+//                case .completed:
+//                    print("completed")
+//                }
+//            }
+//            .disposed(by: rx.disposeBag)
+        
+        
+//        switch event {
+//
+//        case let .success(res):
+//            let data = res.data
+//
+//            let dataString = String(data: data, encoding: .utf8)!
+//
+//            if let obj = SheetListResponse.deserialize(from: dataString) {
+//                print(obj.data.data[0].title!)
+//            }
+//
+//
+//        case let .failure(error):
+//            print("request netword error \(error)")
+//
+//        }
+        
     }
-    
 }
+
 
 // MARK: - YJBannerViewDataSource
 extension GuideController: YJBannerViewDataSource {
