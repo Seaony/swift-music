@@ -1,0 +1,9 @@
+/* 
+  infoPlist.strings
+  Moon
+
+  Created by seaony on 2023/3/24.
+  
+*/
+
+CFBundleName = "我的云音乐";
