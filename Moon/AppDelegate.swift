@@ -69,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = data
         
     }
+    
+    // 退出登录
+    func logout () {}
 
 }
 

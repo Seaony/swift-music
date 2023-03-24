@@ -87,7 +87,16 @@ class GuideController: BaseLogicController {
     // 立即体验按钮被点击
     @objc func enterClick (_ sender: QMUIButton) {
         
-        AppDelegate.shared.toMain()
+        // SuperToast.showLoading()
+        // AppDelegate.shared.toMain()
+        
+        DefaultRepository
+            .shared
+            .sheetDetail(data: "1")
+            .subscribeSuccess { data in
+                print(data)
+            }
+            .disposed(by: rx.disposeBag)
         
         // Moya 原生的网络请求的测试代码
         // let provider = MoyaProvider<DefaultService>()
@@ -109,19 +118,17 @@ class GuideController: BaseLogicController {
         //        }
         
         // RxSwift 网络请求的代码
-//        provider.rx.request(.ads(position: VALUE0))
+//        provider.rx.request(.sheetDetail(data: "11212312312"))
 //            .asObservable()
 //            .mapString()
-//            .mapObject(ListResponse<Ad>.self)
-//            .subscribe{ event in
-//                switch event {
-//                case .next(let data):
-//                    print(data.data.data![0].title!)
-//                case .error(let err):
-//                    print(err)
-//                case .completed:
-//                    print("completed")
-//                }
+//            .mapObject(DetailResponse<Sheet>.self)
+//            .subscribeSuccess { data in
+//                print("\(data.data?.title)")
+//            }
+//            .subscribe { data in
+//                print("\(data.data?.title)")
+//            } _: { data, error in
+//                return false
 //            }
 //            .disposed(by: rx.disposeBag)
         

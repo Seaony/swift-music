@@ -9,3 +9,6 @@
 //轮播图组件（OC实现）
 #import "YJBannerView.h"
 #import "YJBannerViewCell.h"
+
+// 指示器
+#import <MBProgressHUD/MBProgressHUD.h>

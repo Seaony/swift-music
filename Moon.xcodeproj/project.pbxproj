@@ -56,6 +56,9 @@
 		7533494129CD146700BB51DA /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7533494029CD146700BB51DA /* DetailResponse.swift */; };
 		7533494329CD152000BB51DA /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7533494229CD152000BB51DA /* Meta.swift */; };
 		7533494729CD173400BB51DA /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7533494629CD173400BB51DA /* Ad.swift */; };
+		7533494D29CD1FD200BB51DA /* SuperToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7533494C29CD1FD200BB51DA /* SuperToast.swift */; };
+		753DCDDD29CD58B100195761 /* ExceptionHandlerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DCDDC29CD58B100195761 /* ExceptionHandlerUtil.swift */; };
+		753DCDE029CD608D00195761 /* DefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DCDDF29CD608D00195761 /* DefaultRepository.swift */; };
 		98258FB1DB891AF81A2DF3E2 /* Pods_MoonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DFBB9F89E8E2003841EA4BC /* Pods_MoonTests.framework */; };
 		EC7DD8D4FA0A1BFA175B5858 /* Pods_Moon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDEFC60214D0636404DB5F9 /* Pods_Moon.framework */; };
 		F7C2104AD1F9F83400694D29 /* Pods_Moon_MoonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3C70278A19093CAA1141E7 /* Pods_Moon_MoonUITests.framework */; };
@@ -148,6 +151,9 @@
 		7533494029CD146700BB51DA /* DetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponse.swift; sourceTree = "<group>"; };
 		7533494229CD152000BB51DA /* Meta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		7533494629CD173400BB51DA /* Ad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
+		7533494C29CD1FD200BB51DA /* SuperToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperToast.swift; sourceTree = "<group>"; };
+		753DCDDC29CD58B100195761 /* ExceptionHandlerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionHandlerUtil.swift; sourceTree = "<group>"; };
+		753DCDDF29CD608D00195761 /* DefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRepository.swift; sourceTree = "<group>"; };
 		87717C80C83D2CD5B5C522A3 /* Pods-Moon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moon.debug.xcconfig"; path = "Target Support Files/Pods-Moon/Pods-Moon.debug.xcconfig"; sourceTree = "<group>"; };
 		8DFBB9F89E8E2003841EA4BC /* Pods_MoonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60FE75281A2BFB0ED1A096D /* Pods-Moon-MoonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moon-MoonUITests.release.xcconfig"; path = "Target Support Files/Pods-Moon-MoonUITests/Pods-Moon-MoonUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 		7533488D29CCB66300BB51DA /* Moon */ = {
 			isa = PBXGroup;
 			children = (
+				753DCDDE29CD607400195761 /* Repository */,
 				7533493229CD0D4F00BB51DA /* Extension */,
 				7533492929CD092B00BB51DA /* Model */,
 				7533492029CD000C00BB51DA /* Service */,
@@ -279,6 +286,7 @@
 		753348C329CCBDF700BB51DA /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				7533494A29CD1FBA00BB51DA /* SuperUI */,
 				753348FE29CCF99800BB51DA /* YJBannerView */,
 				753348C429CCBE0600BB51DA /* SuperSwift */,
 			);
@@ -329,6 +337,7 @@
 				753348EE29CCD92100BB51DA /* Constant.swift */,
 				753348F429CCE10500BB51DA /* DefaultPreferenceUtil.swift */,
 				7533492729CD02C000BB51DA /* ParamUtil.swift */,
+				753DCDDC29CD58B100195761 /* ExceptionHandlerUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -531,6 +540,30 @@
 				7533494629CD173400BB51DA /* Ad.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7533494A29CD1FBA00BB51DA /* SuperUI */ = {
+			isa = PBXGroup;
+			children = (
+				7533494B29CD1FC600BB51DA /* Toast */,
+			);
+			path = SuperUI;
+			sourceTree = "<group>";
+		};
+		7533494B29CD1FC600BB51DA /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				7533494C29CD1FD200BB51DA /* SuperToast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		753DCDDE29CD607400195761 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				753DCDDF29CD608D00195761 /* DefaultRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		AB58BBC02DAFC64120895D32 /* Frameworks */ = {
@@ -820,6 +853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753348C229CCB82F00BB51DA /* SplashViewController.swift in Sources */,
+				7533494D29CD1FD200BB51DA /* SuperToast.swift in Sources */,
 				753348E529CCD19200BB51DA /* BaseTitleController.swift in Sources */,
 				7533491729CCF99800BB51DA /* YJHollowPageControl.m in Sources */,
 				7533491D29CCF99800BB51DA /* YJBannerViewFooter.m in Sources */,
@@ -834,8 +868,10 @@
 				753348E329CCCC9000BB51DA /* BaseLogicController.swift in Sources */,
 				7533491529CCF99800BB51DA /* UIView+YJBannerViewExt.m in Sources */,
 				7533492829CD02C000BB51DA /* ParamUtil.swift in Sources */,
+				753DCDDD29CD58B100195761 /* ExceptionHandlerUtil.swift in Sources */,
 				753348C729CCBE3300BB51DA /* SuperDateUtil.swift in Sources */,
 				753348DA29CCC9C800BB51DA /* SuperUIColorExtension.swift in Sources */,
+				753DCDE029CD608D00195761 /* DefaultRepository.swift in Sources */,
 				7533491829CCF99800BB51DA /* YJAbstractDotView.m in Sources */,
 				753348EA29CCD47000BB51DA /* TermServiceDialogController.swift in Sources */,
 				7533491629CCF99800BB51DA /* YJBannerView.m in Sources */,
