@@ -7,14 +7,13 @@
 
 import UIKit
 
-class MeController: BaseLogicController {
+class MeController: BaseMainController {
 
     override func initViews() {
-        
         super.initViews()
-        
-        setBackgroundColor(.orange)
-        
+
+        //初始化TableView结构
+        initTableViewSafeArea()
     }
 
 }

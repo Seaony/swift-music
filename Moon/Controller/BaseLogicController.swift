@@ -157,6 +157,11 @@ class BaseLogicController: BaseCommonController {
         navigationController?.navigationBar.isHidden = true
     }
 
+
+    func finish() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
 
 

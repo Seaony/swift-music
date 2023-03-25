@@ -7,14 +7,13 @@
 
 import UIKit
 
-class FeedController: BaseLogicController {
+class FeedController: BaseMainController {
 
     override func initViews() {
-        
         super.initViews()
-        
-        setBackgroundColor(.green)
-        
+
+        //初始化TableView结构
+        initTableViewSafeArea()
     }
 
 }

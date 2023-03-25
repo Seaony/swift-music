@@ -7,15 +7,10 @@
 
 import UIKit
 
-class RoomController: BaseLogicController {
+class RoomController: BaseMainController {
 
     override func initViews() {
-        
         super.initViews()
-        
-        setBackgroundColor(.systemPink)
-        
     }
-
 
 }
