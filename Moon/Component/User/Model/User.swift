@@ -8,5 +8,11 @@
 import Foundation
 
 class User {
-    
+
+    // 昵称
+    var nickname: String!
+
+    // 头像
+    var icon: String!
+
 }

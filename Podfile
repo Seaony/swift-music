@@ -9,7 +9,7 @@ target 'Moon' do
   #提供类似Android中更高层级的布局框架
   #https://github.com/youngsoft/TangramKit
   pod 'TangramKit'
-  
+
   #将资源（图片，文件等）生成类，方便到代码中方法
   #例如：let icon = R.image.settingsIcon()
   #let font = R.font.sanFrancisco(size: 42)
@@ -18,7 +18,7 @@ target 'Moon' do
   #let string = R.string.localizable.welcomeWithName("Arthur Dent")
   #https://github.com/mac-cain13/R.swift
   pod 'R.swift'
-  
+
   #颜色工具类
   #https://github.com/yannickl/DynamicColor
   pod "DynamicColor"
@@ -51,6 +51,14 @@ target 'Moon' do
   #提示框架
   #https:https://github.com/jdg/MBProgressHUD
   pod 'MBProgressHUD'
+
+  #Swift图片加载
+  #https://github.com/onevcat/Kingfisher
+  pod "Kingfisher"
+
+  #Swift扩展，像字符串，数组等
+  #https://github.com/SwifterSwift/SwifterSwift
+  pod 'SwifterSwift'
 
   target 'MoonTests' do
     inherit! :search_paths

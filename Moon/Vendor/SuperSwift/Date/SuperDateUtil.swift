@@ -23,4 +23,18 @@ class SuperDateUtil {
         
     }
     
+    static func currentDay() -> Int {
+        
+        // 获取当前日期
+        let date = Date()
+        
+        // 实例化日历类
+        let calender = Calendar.current
+        
+        let d = calender.dateComponents([Calendar.Component.day], from: date)
+        
+        return d.day!
+        
+    }
+    
 }

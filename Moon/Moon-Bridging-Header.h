@@ -12,3 +12,6 @@
 
 // 指示器
 #import <MBProgressHUD/MBProgressHUD.h>
+
+// SDImage
+#import <SDWebImage/SDWebImage.h>

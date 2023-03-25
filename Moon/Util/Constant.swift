@@ -9,7 +9,7 @@ import Foundation
 
 class Constant {
     static let ANONYMOUS = "anonymous"
-    
+
     static let CLICK_EVENT = "CLICK_EVENT"
     static let EVENT_MUSIC_LIST_CHANGED = "EVENT_MUSIC_LIST_CHANGED"
     static let EVENT_LOGIN_CLICK = "EVENT_LOGIN_CLICK"
@@ -24,10 +24,10 @@ class Constant {
     static let EVENT_DOWNLOAD_CHANGED = "EVENT_DOWNLOAD_CHANGED"
     static let EVENT_USER_SELECTED = "EVENT_USER_SELECTED"
     static let EVENT_NOTIFICATION_CLICK = "EVENT_NOTIFICATION_CLICK"
-    
+
     /// 列表Cell复用字符串
     static let CELL = "CELL"
-    
+
     static let DATA = "DATA"
 }
 
@@ -64,3 +64,33 @@ let VALUE_NO = -1
 let VALUE0 = 0
 let VALUE10 = 10
 let VALUE12 = 12
+
+/// 类型枚举，所有类型都定义到这里，方便统一管理，当然也可以按模块，界面拆分
+enum MyStyle:Int {
+    case none = -1
+    case banner
+    case button
+    case sheet
+    case song
+    case footer
+    case refresh
+    case phoneLogin
+    case forgotPassword
+    case more
+    case videoInfo
+    case title
+    case video
+    case comment
+    case downloadManager
+    case local
+    case add
+    case select
+    case confirmOrder
+    case increment
+    case decrement
+    case playList
+    case friend
+    case fans
+}
+
+let SCREEN_WIDTH:CGFloat = UIScreen.main.bounds.width

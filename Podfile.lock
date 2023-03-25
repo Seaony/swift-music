@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.6.4)
   - DynamicColor (5.0.1)
   - HandyJSON (5.0.2)
+  - Kingfisher (7.6.2)
   - MBProgressHUD (1.2.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
@@ -311,17 +312,44 @@ PODS:
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
   - TangramKit (1.4.2)
 
 DEPENDENCIES:
   - DynamicColor
   - HandyJSON
+  - Kingfisher
   - MBProgressHUD
   - Moya/RxSwift
   - "NSObject+Rx"
   - QMUIKit
   - R.swift
   - SDWebImage
+  - SwifterSwift
   - TangramKit
 
 SPEC REPOS:
@@ -329,6 +357,7 @@ SPEC REPOS:
     - Alamofire
     - DynamicColor
     - HandyJSON
+    - Kingfisher
     - MBProgressHUD
     - Moya
     - "NSObject+Rx"
@@ -336,12 +365,14 @@ SPEC REPOS:
     - R.swift
     - RxSwift
     - SDWebImage
+    - SwifterSwift
     - TangramKit
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   DynamicColor: d049834ef86d8ecf150b0ca1ebe54ee733a0ec22
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
@@ -349,8 +380,9 @@ SPEC CHECKSUMS:
   R.swift: cef1c530541cb49412752721797f10dae6b32d11
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   TangramKit: aad3ab8f9617418c9da96d59cddd71134ae8af83
 
-PODFILE CHECKSUM: b7f2cbd4a6ddf2309a2ceb8ba73f6a2662c3e7d2
+PODFILE CHECKSUM: 32214f37234d64e3121f884b1ae676a2e1887ba0
 
 COCOAPODS: 1.12.0

@@ -20,9 +20,19 @@ class BaseLogicController: BaseCommonController {
     /// 内容容器
     var container: TGBaseLayout!
     
+    var tableView: UITableView!
+    
     /// 底部容器&内容容器
     var superFooterContainer: TGBaseLayout!
     var superFooterContentContainer: TGBaseLayout!
+    
+    lazy var datum: [Any] = {
+        
+        var result: [Any] = []
+        
+        return result
+        
+    }()
     
     /// 初始化RelativeLayout容器，四边都在安全区内
     func initRelativeLayoutSafeArea() {
@@ -55,6 +65,32 @@ class BaseLogicController: BaseCommonController {
         rootContainer.addSubview(container)
         
         initFooterContainer()
+    }
+    
+    /// 初始化 TabeView，四边都在安全区内
+    func initTableViewSafeArea () {
+        
+        initLinearLayoutSafeArea()
+        
+        // 创建 TableView
+        createTableView()
+        
+        container.addSubview(tableView)
+    }
+    
+    // 创建 TableView
+    func createTableView () {
+        
+        tableView = ViewFactoryUtil.tableView()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+    
+    /// 使用默认分割线
+    func initDefaultTableViewDivider() {
+        tableView.separatorStyle = .singleLine
     }
     
     /// 初始化垂直方向 LinearLayout 容器
@@ -119,5 +155,25 @@ class BaseLogicController: BaseCommonController {
 
         
     }
+    
+}
+
+
+extension BaseLogicController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return datum.count
+        
+    }
+    
+    
+    
     
 }

@@ -88,15 +88,15 @@ class GuideController: BaseLogicController {
     @objc func enterClick (_ sender: QMUIButton) {
         
         // SuperToast.showLoading()
-        // AppDelegate.shared.toMain()
+        AppDelegate.shared.toMain()
         
-        DefaultRepository
-            .shared
-            .sheetDetail(data: "1")
-            .subscribeSuccess { data in
-                print(data)
-            }
-            .disposed(by: rx.disposeBag)
+//        DefaultRepository
+//            .shared
+//            .sheetDetail(data: "1")
+//            .subscribeSuccess { data in
+//                print(data)
+//            }
+//            .disposed(by: rx.disposeBag)
         
         // Moya 原生的网络请求的测试代码
         // let provider = MoyaProvider<DefaultService>()
