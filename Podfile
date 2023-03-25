@@ -60,6 +60,14 @@ target 'Moon' do
   #https://github.com/SwifterSwift/SwifterSwift
   pod 'SwifterSwift'
 
+  # 发布订阅框架
+  # https://github.com/cesarferreira/SwiftEventBus
+  pod "SwiftEventBus"
+
+  #下拉刷新
+  #https://github.com/CoderMJLee/MJRefresh
+  pod 'MJRefresh'
+
   target 'MoonTests' do
     inherit! :search_paths
     # Pods for testing

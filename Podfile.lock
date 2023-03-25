@@ -4,6 +4,7 @@ PODS:
   - HandyJSON (5.0.2)
   - Kingfisher (7.6.2)
   - MBProgressHUD (1.2.0)
+  - MJRefresh (3.7.5)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -337,6 +338,7 @@ PODS:
   - SwifterSwift/StoreKit (5.2.0)
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
+  - SwiftEventBus (5.0.0)
   - TangramKit (1.4.2)
 
 DEPENDENCIES:
@@ -344,12 +346,14 @@ DEPENDENCIES:
   - HandyJSON
   - Kingfisher
   - MBProgressHUD
+  - MJRefresh
   - Moya/RxSwift
   - "NSObject+Rx"
   - QMUIKit
   - R.swift
   - SDWebImage
   - SwifterSwift
+  - SwiftEventBus
   - TangramKit
 
 SPEC REPOS:
@@ -359,6 +363,7 @@ SPEC REPOS:
     - HandyJSON
     - Kingfisher
     - MBProgressHUD
+    - MJRefresh
     - Moya
     - "NSObject+Rx"
     - QMUIKit
@@ -366,6 +371,7 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
     - SwifterSwift
+    - SwiftEventBus
     - TangramKit
 
 SPEC CHECKSUMS:
@@ -374,6 +380,7 @@ SPEC CHECKSUMS:
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   QMUIKit: b831835f33d7fb3494809042225e6256eb22b892
@@ -381,8 +388,9 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  SwiftEventBus: b30f617a6aca5a9336464b4d3f5931034762f2d5
   TangramKit: aad3ab8f9617418c9da96d59cddd71134ae8af83
 
-PODFILE CHECKSUM: 32214f37234d64e3121f884b1ae676a2e1887ba0
+PODFILE CHECKSUM: dd6987579df5bf88c6394070e8aef1ed444536be
 
 COCOAPODS: 1.12.0

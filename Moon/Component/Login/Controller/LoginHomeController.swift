@@ -7,13 +7,17 @@
 
 import UIKit
 
-class LoginHomeController: BaseLogicController {
+class LoginHomeController: BaseTitleController {
 
     override func initViews() {
-        
+
         super.initViews()
         setBackgroundColor(.blue)
-        
+
+        initLinearLayoutSafeArea()
+
+        title = "登录"
+
     }
 
 }
