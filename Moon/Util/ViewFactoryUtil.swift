@@ -92,6 +92,19 @@ class ViewFactoryUtil {
 
     }
 
+    static func primaryHalfFilletOutlineButton () -> QMUIButton {
+        let r = primaryOutlineButton()
+        r.layer.cornerRadius = BUTTON_MEDDLE_RADIUS
+        return r
+    }
+
+    static func buttonLarge(_ data: UIImage) -> QMUIButton {
+        let r = button(data)
+        r.tg_width.equal(40)
+        r.tg_height.equal(40)
+        return r
+    }
+
     static func button (_ image: UIImage) -> QMUIButton {
         let r = QMUIButton()
         r.adjustsTitleTintColorAutomatically = true
@@ -178,4 +191,22 @@ class ViewFactoryUtil {
         return r
     }
 
+    static func moreIconView() -> UIImageView {
+        let r = UIImageView()
+        r.tg_width.equal(15)
+        r.tg_height.equal(15)
+        r.image = R.image.superChevronRight()?.withTintColor()
+        r.tintColor = .black80
+        r.tg_centerY.equal(0)
+        r.contentMode = .scaleAspectFit
+        return r
+    }
+
+    static func orientationContainer(_ orientation:TGOrientation = .horz) -> TGLinearLayout {
+        let result = TGLinearLayout(orientation)
+        result.tg_width.equal(.fill)
+        result.tg_height.equal(.wrap)
+
+        return result
+    }
 }

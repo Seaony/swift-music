@@ -26,6 +26,12 @@ class BaseLogicController: BaseCommonController {
     var superFooterContainer: TGBaseLayout!
     var superFooterContentContainer: TGBaseLayout!
 
+    // ScrollView 容器
+    var scrollView: UIScrollView!
+
+    // 内容容器，只有 ScrollView 时才有
+    var contentContainer: TGBaseLayout!
+
     lazy var datum: [Any] = {
 
         var result: [Any] = []
@@ -76,6 +82,26 @@ class BaseLogicController: BaseCommonController {
         createTableView()
 
         container.addSubview(tableView)
+    }
+
+    // 初始化 ScrollView 容器，四边都在安全区内
+    func initScrollSafeArea () {
+
+        initLinearLayoutSafeArea()
+
+        // 创建 ScrollView
+        scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.tg_width.equal(.fill)
+        scrollView.tg_height.equal(.fill)
+        container.addSubview(scrollView)
+
+        // 真实内容容器
+        contentContainer = TGLinearLayout(.vert)
+        contentContainer.tg_width.equal(.fill)
+        contentContainer.tg_height.equal(.wrap)
+
+        scrollView.addSubview(contentContainer)
     }
 
     // 创建 TableView
@@ -160,6 +186,30 @@ class BaseLogicController: BaseCommonController {
 
     func finish() {
         navigationController?.popViewController(animated: true)
+    }
+
+    // MARK: - 隐藏键盘
+
+/// 点击空白隐藏键盘
+    func initTapHideKeyboard() {
+        //点击空白，关闭键盘
+        let g=UITapGestureRecognizer(target: self, action: #selector(tapClick(_:)))
+
+        //设置成false表示当前控件响应后会传播到其他控件上
+        //如果不设置为false，界面里面的列表控件可能无法响应点击事件
+        g.cancelsTouchesInView = true
+
+        //将触摸事件添加到当前view
+        view.addGestureRecognizer(g)
+    }
+
+    @objc func tapClick(_ data:UITapGestureRecognizer) {
+        hideKeyboard()
+    }
+
+/// 隐藏键盘
+    func hideKeyboard() {
+        view.endEditing(true)
     }
 
 }

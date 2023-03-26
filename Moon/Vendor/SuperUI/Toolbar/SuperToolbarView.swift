@@ -61,7 +61,7 @@ class SuperToolbarView: TGRelativeLayout {
 
     lazy var titleView: UILabel = {
         let r = UILabel()
-        r.tg_width.equal(.wrap)
+        r.tg_width.equal(SCREEN_WIDTH - 150)
         r.tg_height.equal(.wrap)
         r.numberOfLines = 1
         r.font = UIFont.systemFont(ofSize: TEXT_LARGE3, weight: .heavy)

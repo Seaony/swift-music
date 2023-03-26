@@ -22,6 +22,9 @@ enum DefaultService {
     // 注册
     case register(data: User)
 
+    // 登录
+    case login(data: User)
+
     // 单曲
     case songs
 
@@ -60,6 +63,9 @@ extension DefaultService: TargetType {
         case .register(_):
             return "v1/users"
 
+        case .login:
+            return "v1/sessions"
+
 //        default:
 //            fatalError("DefaultService Path is Null")
         }
@@ -70,7 +76,7 @@ extension DefaultService: TargetType {
 
         switch self {
 
-        case .register(_):
+        case .register(_), .login:
             return .post
 
         default:
@@ -90,6 +96,9 @@ extension DefaultService: TargetType {
         case .sheets(let size):
             return ParamUtil.urlRequestParamters(["size": size])
 
+        case .login(let data):
+            return .requestData(data.toJSONString()!.data(using: .utf8)!)
+
         default:
             return .requestPlain
 
@@ -100,6 +109,8 @@ extension DefaultService: TargetType {
     var headers: [String : String]? {
 
         var headers:Dictionary<String, String> = [:]
+
+        headers["Content-Type"] = "application/json"
 
         return headers
 

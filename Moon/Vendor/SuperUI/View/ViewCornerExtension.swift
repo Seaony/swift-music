@@ -15,7 +15,7 @@ extension UIView {
     }
 
     // 设置圆角
-    func corner(_ radius: CGFloat) {
+    func corner(_ radius: CGFloat = MEDDLE_RADIUS) {
         self.clipsToBounds = true
         self.layer.cornerRadius = radius
     }

@@ -33,11 +33,39 @@ class BaseMainController: BaseTitleController {
     override func initViews() {
         super.initViews()
         setBackgroundColor(.colorBackgroundLight)
-
         addLeftImageButton(R.image.menu()!)
         addRightImageButton(R.image.mic()!)
-
         toolbarView.addCenterItem(searchButton)
     }
 
+    override func initListeners() {
+        super.initListeners()
+        self.cw_registerShowIntractive(withEdgeGesture: false) { [weak self] direction in
+            if direction == .fromLeft {
+                self?.openDrawer()
+            }
+        }
+    }
+
+    override func leftClick(_ sender: QMUIButton) {
+        openDrawer()
+    }
+
+    func closeDrawer() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func openDrawer () {
+        //真实内容滑动到外面
+        // self.cw_showDefaultDrawerViewController(drawerController)
+
+
+        //侧滑显示到真实内容上面
+        self.cw_showDrawerViewController(drawerController, animationType: .mask, configuration: nil)
+    }
+
+    lazy var drawerController: DrawerController = {
+        let r = DrawerController()
+        return r
+    }()
 }

@@ -109,7 +109,7 @@ class DiscoveryController: BaseMainController {
 
     func processAdClick(_ data: Ad) {
         if data.uri.starts(with: "http") {
-            SuperWebController.start(navigationController!, title: data.title, url: data.uri)
+            SuperWebController.start(navigationController!, title: data.title, uri: data.uri)
         }
     }
 

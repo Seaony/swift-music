@@ -68,6 +68,15 @@ target 'Moon' do
   #https://github.com/CoderMJLee/MJRefresh
   pod 'MJRefresh'
 
+  #富文本框架
+  #https://github.com/a1049145827/BSText
+  #OC版本：https://github.com/ibireme/YYText
+  pod "BSText"
+
+  #腾讯开源的偏好存储框架
+  #https://github.com/Tencent/MMKV
+  pod 'MMKV'
+
   target 'MoonTests' do
     inherit! :search_paths
     # Pods for testing

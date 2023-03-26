@@ -16,6 +16,7 @@ class SuperWebController: BaseTitleController {
 
         addRightImageButton(R.image.close()!.withTintColor())
         container.addSubview(webView)
+        container.addSubview(progressView)
     }
 
     override func initDatum() {
@@ -75,6 +76,59 @@ class SuperWebController: BaseTitleController {
 //        webView.uiDelegate = self
         return webView
     }()
+
+    lazy var progressView: UIProgressView = {
+
+        let r = UIProgressView()
+        r.tg_width.equal(.fill)
+        r.tg_height.equal(1)
+        r.progressTintColor = .colorPrimary
+        return r
+
+    }()
+
+    override func initListeners() {
+        super.initListeners()
+
+        if SuperStringUtil.isBlank(title) {
+            // 坚挺网页标题
+            webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
+        }
+
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+    }
+
+    /// 监听网页标题
+    ///
+    /// - Parameters:
+    ///   - keyPath:
+    ///   - object:
+    ///   - change:
+    ///   - context:
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if let _ = object as? WKWebView {
+            if keyPath == "title" {
+                self.title = webView.title
+            } else if keyPath == "estimatedProgress" {
+//                progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+                let progress = change?[.newKey] as? Float ?? 0
+                progressView.progress = progress
+
+                if progress < 1 {
+                    progressView.show()
+                    progressView.alpha = 1
+                } else {
+                    UIView.animate(withDuration: 0.35, delay: 0.15, animations: {
+                        self.progressView.alpha = 0
+                    }, completion: { _ in
+                        self.progressView.hide()
+                        self.progressView.setProgress(0, animated: false)
+                        self.progressView.alpha = 1
+                    })
+                }
+            }
+        }
+    }
 
     static let CONTENT_WRAPPER_START = "<!DOCTYPE html><html><head><title></title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\"><style type=\"text/css\"> body{font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;word-wrap: break-word;word-break: normal;} h2{text-align: center;} img {max-width: 100%;} pre{word-wrap: break-word!important;overflow: auto;}</style></head><body>"
     static let CONTENT_WRAPPER_END = "</body></html>"
