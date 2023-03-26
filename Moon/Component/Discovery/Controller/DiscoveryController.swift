@@ -105,6 +105,12 @@ class DiscoveryController: BaseMainController {
         SwiftEventBus.onMainThread(self, name: Constant.CLICK_EVENT) { [weak self] data in
             self?.processClick(data?.object as! MyStyle)
         }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(toLoginClick(_:)), name: NSNotification.Name(Constant.EVENT_LOGIN_CLICK), object: nil)
+    }
+
+    @objc func toLoginClick(_ data: Notification) {
+        toLogin()
     }
 
     func processAdClick(_ data: Ad) {

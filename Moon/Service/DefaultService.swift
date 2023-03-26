@@ -31,6 +31,7 @@ enum DefaultService {
     // 单曲详情
     case songDetail(data: String)
 
+    case userDetail(data: String, nickname: String?)
 }
 
 // MARK: 实现 TargetType 协议
@@ -59,6 +60,9 @@ extension DefaultService: TargetType {
 
         case .songDetail(let data):
             return "v1/songs/\(data)"
+
+        case .userDetail(let data, _):
+            return "v1/users/\(data)"
 
         case .register(_):
             return "v1/users"
@@ -98,6 +102,13 @@ extension DefaultService: TargetType {
 
         case .login(let data):
             return .requestData(data.toJSONString()!.data(using: .utf8)!)
+
+        case .userDetail(_, let nickname):
+            var param: [String: Any] = [:]
+            if SuperStringUtil.isNotBlank(nickname) {
+                param["nickname"] = nickname
+            }
+            return ParamUtil.urlRequestParamters(param)
 
         default:
             return .requestPlain

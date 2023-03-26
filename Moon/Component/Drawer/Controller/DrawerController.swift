@@ -4,6 +4,7 @@
 
 import Foundation
 import TangramKit
+import RxSwift
 import DynamicColor
 
 class DrawerController: BaseLogicController {
@@ -25,6 +26,9 @@ class DrawerController: BaseLogicController {
         initOtherMenu()
 
         initAboutMenu()
+
+        // 退出按钮
+        contentContainer.addSubview(primaryButton)
     }
 
     // closeDrawer 方法
@@ -123,7 +127,6 @@ class DrawerController: BaseLogicController {
         recordContainer.addSubview(priceHintView)
     }
 
-
     //MARK: - 创建控件 我的消息
     func initMessageMenu() {
         let itemContainer = TGLinearLayout(.vert)
@@ -193,7 +196,7 @@ class DrawerController: BaseLogicController {
 
     //MARK: - 创建控件 其他
     func initOtherMenu() {
-        let itemContainer=TGLinearLayout(.vert)
+        let itemContainer = TGLinearLayout(.vert)
         itemContainer.tg_width.equal(.fill)
         itemContainer.tg_height.equal(.wrap)
         itemContainer.backgroundColor = .colorDivider
@@ -213,13 +216,13 @@ class DrawerController: BaseLogicController {
         itemContainer.addSubview(groupTitle)
 
         //设置
-        var itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.setting()) {[weak self] data in
+        var itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.setting()) { [weak self] data in
             self?.closeDrawer()
         }
         itemContainer.addSubview(itemView)
 
         //深色模式
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.darkMode(),click:{[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.darkMode(), click: { [weak self] data in
 
         }, switchChanged: { data in
             print("night switch changed \(data.isOn)")
@@ -227,28 +230,28 @@ class DrawerController: BaseLogicController {
         itemContainer.addSubview(itemView)
 
         //定时关闭
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.timedOff()) {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.timedOff()) { [weak self] data in
             self?.closeDrawer()
         }
         itemView.moreView.text = R.string.localizable.notOpen()
         itemContainer.addSubview(itemView)
 
         //个性装扮
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.personDress()) {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.personDress()) { [weak self] data in
             self?.closeDrawer()
         }
         itemContainer.addSubview(itemView)
 
 
         //边听边缓存
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.cacheWhileList()) {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.cacheWhileList()) { [weak self] data in
             self?.closeDrawer()
         }
         itemContainer.addSubview(itemView)
 
 
         //音乐闹钟
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.musicAlarmClock()) {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.musicAlarmClock()) { [weak self] data in
             self?.closeDrawer()
         }
         itemContainer.addSubview(itemView)
@@ -256,7 +259,7 @@ class DrawerController: BaseLogicController {
 
     //MARK: - 创建控件 关于
     func initAboutMenu() {
-        let itemContainer=TGLinearLayout(.vert)
+        let itemContainer = TGLinearLayout(.vert)
         itemContainer.tg_width.equal(.fill)
         itemContainer.tg_height.equal(.wrap)
         itemContainer.backgroundColor = .colorDivider
@@ -265,40 +268,122 @@ class DrawerController: BaseLogicController {
         contentContainer.addSubview(itemContainer)
 
         //我的客服
-        var itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.myCustomerService()) {[weak self] data in
+        var itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.myCustomerService()) { [weak self] data in
             self?.closeDrawer()
 
         }
         itemContainer.addSubview(itemView)
 
         //分享
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.shareApp()) {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.shareApp()) { [weak self] data in
             self?.closeDrawer()
 
         }
         itemContainer.addSubview(itemView)
 
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title:"接口签名和加密") {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: "接口签名和加密") { [weak self] data in
             self?.closeDrawer()
         }
         itemContainer.addSubview(itemView)
 
         //关于
-        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.about()) {[weak self] data in
+        itemView = SuperSettingView.smallWithIcon(R.image.scan()!, title: R.string.localizable.about()) { [weak self] data in
             self?.closeDrawer()
-
         }
         itemContainer.addSubview(itemView)
     }
 
-
     @objc func onUserViewClick() {
         closeDrawer { [weak self] in
-            self?.startController(LoginHomeController.self)
+            self?.loginAfter {
+                UserDetailController.start(self!.findNavigationController()!, id: PreferenceUtil.getUserId())
+            }
         }
     }
 
     @objc func onScanClick() {
+        closeDrawer()
+    }
+
+    @objc func primaryClick() {
+        logoutConfirmController.show()
+    }
+
+    @objc func primaryConfirmClick(_ data: SuperDialogController) {
+        logoutConfirmController.hide()
+        closeDrawer{ [weak self] in
+            AppDelegate.shared.logout()
+            self?.showNotLogin()
+        }
+    }
+
+    lazy var logoutConfirmController: SuperDialogController = {
+        let r = SuperDialogController()
+        r.setTitleText(R.string.localizable.confirmLogout())
+        r.setCancelButton(title: R.string.localizable.superCancel())
+        r.setWarningButton(title: R.string.localizable.confirm(), target: self, action: #selector(primaryConfirmClick(_:)))
+        return r
+    }()
+
+    /// 界面即将展示时会调用
+    /// - Parameter animated: 是否动画
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showUserInfo()
+    }
+
+    /// 拉取最新的用户信息
+    func showUserInfo() {
+        if PreferenceUtil.isLogin() {
+
+            // 如果用户已经登录了，则去加载用户信息
+            loadUserData()
+            primaryButton.show()
+        } else {
+            // 如果用户没有登录，则显示默认的用户信息
+            showNotLogin()
+        }
+    }
+
+    func loadUserData() {
+        DefaultRepository
+                .shared
+                .userDetail(PreferenceUtil.getUserId())
+                .subscribeSuccess { [weak self] data in
+                    self?.show(data.data!)
+                }
+                .disposed(by: rx.disposeBag)
+    }
+
+    // 显示用户信息
+    func show(_ data: User) {
+        iconView.showAvatar(data.icon)
+        nicknameView.text = data.nickname
+    }
+
+    // 展示未登录时的信息
+    func showNotLogin() {
+        iconView.image = R.image.defaultAvatar()
+        nicknameView.text = R.string.localizable.loginNow()
+        primaryButton.hide()
+    }
+
+    /// 界面已经展示出来时
+    /// - Parameter animated:
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    /// 界面即将消失时
+    /// - Parameter animated:
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+
+    /// 界面已经消失时
+    /// - Parameter animated:
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
 
     lazy var iconView: UIImageView = {
@@ -342,5 +427,15 @@ class DrawerController: BaseLogicController {
             self?.closeDrawer()
         }
         return result
+    }()
+
+    var primaryButton: QMUIButton = {
+
+        let r = ViewFactoryUtil.primaryHalfFilletOutlineButton()
+        r.setTitle(R.string.localizable.logout(), for: .normal)
+        r.tg_top.equal(PADDING_OUTER)
+        r.addTarget(self, action: #selector(primaryClick), for: .touchUpInside)
+        return r
+
     }()
 }

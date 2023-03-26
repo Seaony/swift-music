@@ -81,6 +81,7 @@
 		C9FA50F2B70138132D9599BF /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA593E572FAE6949775FB6 /* StringUtil.swift */; };
 		C9FA510D291E24C8E5779A4E /* SuperInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA5BC985682C67157FC7DB /* SuperInputView.swift */; };
 		C9FA51DF2FAC4156791229CA /* StringRegularUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA58C856DCEF6CE727BB17 /* StringRegularUtil.swift */; };
+		C9FA51F69F781963C4E8F0B9 /* UserDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA5AF25639A278DB544B16 /* UserDetailController.swift */; };
 		C9FA51F93268B7B5D3125B98 /* DiscoveryFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA583948E3C38C36ADBFBC /* DiscoveryFooterCell.swift */; };
 		C9FA525979372EEBFDBF8C74 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA5BE76E497612209EFAF5 /* StringExtension.swift */; };
 		C9FA528AFCBB7ACE826EBDFD /* SuperUIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA5A47637EF29711B926BE /* SuperUIViewControllerExtension.swift */; };
@@ -106,6 +107,8 @@
 		C9FA5C70FDED0B0C000311FF /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA5E736F7F32BF0BC20F17 /* ViewExtension.swift */; };
 		C9FA5CA438ACD2A17E252136 /* FooterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA59F1670286C3045F4EF9 /* FooterData.swift */; };
 		C9FA5CC91414335C29944062 /* ViewCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA54D414A10E9815DD94FA /* ViewCornerExtension.swift */; };
+		C9FA5D492B76E1FC58E4BE89 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA502F6697760F0E190FDE /* UIViewController.swift */; };
+		C9FA5DCDEE793039BE3E6593 /* SuperDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA599EA49F0F554EE98D18 /* SuperDialogController.swift */; };
 		C9FA5DEBD3E00190E1E8AA93 /* BaseRelativeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA5A9FA8380C7E0861F4AD /* BaseRelativeLayout.swift */; };
 		C9FA5E39B1CC4546DF49F7F4 /* DiscoverySongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA57D5174A119C2940329A /* DiscoverySongCell.swift */; };
 		C9FA5E90E3EB128117A89ABA /* BaseMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FA55634E044F8B4D5C1239 /* BaseMainController.swift */; };
@@ -222,6 +225,7 @@
 		87717C80C83D2CD5B5C522A3 /* Pods-Moon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moon.debug.xcconfig"; path = "Target Support Files/Pods-Moon/Pods-Moon.debug.xcconfig"; sourceTree = "<group>"; };
 		8DFBB9F89E8E2003841EA4BC /* Pods_MoonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C60FE75281A2BFB0ED1A096D /* Pods-Moon-MoonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moon-MoonUITests.release.xcconfig"; path = "Target Support Files/Pods-Moon-MoonUITests/Pods-Moon-MoonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C9FA502F6697760F0E190FDE /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C9FA503A29A7970D9E5B31A7 /* BaseLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLoginController.swift; sourceTree = "<group>"; };
 		C9FA50473F43CAE15BE2535C /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		C9FA504C0F5CEC528BFA2871 /* SuperWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperWebController.swift; sourceTree = "<group>"; };
@@ -244,12 +248,14 @@
 		C9FA58C856DCEF6CE727BB17 /* StringRegularUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringRegularUtil.swift; sourceTree = "<group>"; };
 		C9FA593E572FAE6949775FB6 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		C9FA5951594821190369E6C3 /* CWLateralSlideConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWLateralSlideConfiguration.m; sourceTree = "<group>"; };
+		C9FA599EA49F0F554EE98D18 /* SuperDialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperDialogController.swift; sourceTree = "<group>"; };
 		C9FA59F1670286C3045F4EF9 /* FooterData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterData.swift; sourceTree = "<group>"; };
 		C9FA5A0C74ADBAF9FE9F2015 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
 		C9FA5A2C2534B4827455525D /* CWDrawerTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDrawerTransition.h; sourceTree = "<group>"; };
 		C9FA5A47637EF29711B926BE /* SuperUIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperUIViewControllerExtension.swift; sourceTree = "<group>"; };
 		C9FA5A7D30F95462FD5CEE9F /* CWInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWInteractiveTransition.m; sourceTree = "<group>"; };
 		C9FA5A9FA8380C7E0861F4AD /* BaseRelativeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRelativeLayout.swift; sourceTree = "<group>"; };
+		C9FA5AF25639A278DB544B16 /* UserDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailController.swift; sourceTree = "<group>"; };
 		C9FA5BC985682C67157FC7DB /* SuperInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperInputView.swift; sourceTree = "<group>"; };
 		C9FA5BE3F63C8024F29CAD40 /* CWInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWInteractiveTransition.h; sourceTree = "<group>"; };
 		C9FA5BE76E497612209EFAF5 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -587,6 +593,7 @@
 			isa = PBXGroup;
 			children = (
 				7533492429CD00AF00BB51DA /* Model */,
+				C9FA58A2A67767C7F910C4B2 /* Controller */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -633,6 +640,7 @@
 			children = (
 				7533493329CD0D9500BB51DA /* ObservableMoyaExtension.swift */,
 				C9FA5BE76E497612209EFAF5 /* StringExtension.swift */,
+				C9FA502F6697760F0E190FDE /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -676,6 +684,7 @@
 				C9FA5A99A5D8692166DB8428 /* Setting */,
 				C9FA51C62F8AC1A4C7F6017C /* Controller */,
 				C9FA51F067EECF9E118CC347 /* Input */,
+				C9FA536404525F7F851547C9 /* Dialog */,
 			);
 			path = SuperUI;
 			sourceTree = "<group>";
@@ -917,6 +926,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C9FA536404525F7F851547C9 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				C9FA599EA49F0F554EE98D18 /* SuperDialogController.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		C9FA5565805E478D9167951A /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -939,6 +956,14 @@
 				C9FA5421B169B2386AA0021E /* Session.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9FA58A2A67767C7F910C4B2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C9FA5AF25639A278DB544B16 /* UserDetailController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C9FA5A99A5D8692166DB8428 /* Setting */ = {
@@ -1358,6 +1383,9 @@
 				C9FA52A9E65849480B2C2664 /* BaseLoginController.swift in Sources */,
 				C9FA554FC7366E8FE15F7AFD /* Session.swift in Sources */,
 				C9FA57D781676621CC9E6FAF /* PreferenceUtil.swift in Sources */,
+				C9FA5D492B76E1FC58E4BE89 /* UIViewController.swift in Sources */,
+				C9FA5DCDEE793039BE3E6593 /* SuperDialogController.swift in Sources */,
+				C9FA51F69F781963C4E8F0B9 /* UserDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
